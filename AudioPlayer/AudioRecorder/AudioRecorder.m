@@ -43,7 +43,7 @@ static const AudioUnitElement inputElement = 1;
 
 @end
 
-const float SMAudioIOBufferDurationSmall = 0.0058f;
+const float SMAudioIOBufferDurationSmallest = 0.0058f;
 
 @implementation AudioRecorder
 {
@@ -58,7 +58,7 @@ const float SMAudioIOBufferDurationSmall = 0.0058f;
         _destinationFilePath = path;
         [[ELAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord];
         [[ELAudioSession sharedInstance] setPreferredSampleRate:_sampleRate];
-        [[ELAudioSession sharedInstance] setPreferredLatency:SMAudioIOBufferDurationSmall];
+        [[ELAudioSession sharedInstance] setPreferredLatency:SMAudioIOBufferDurationSmallest];
         [[ELAudioSession sharedInstance] setActive:YES];
         [[ELAudioSession sharedInstance] addRouteChangeListener];
         [self addAudioSessionInterruptedObserver];
